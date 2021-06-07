@@ -8,14 +8,14 @@
   <div class="col-md-6">
     <h3>Create New Post:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-dashboard-form">
       <div class="form-group">
-        <label for="project-name">Title:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="dashboard-name">Title:</label>
+        <input class="form-input" type="text" id="dashboard-name" name="dashboard-name" />
       </div>
       <div class="form-group">
-        <label for="project-desc">Content:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="dashboard-desc">Content:</label>
+        <textarea class="form-input" id="dashboard-desc" name="dashboard-desc"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -23,15 +23,15 @@
     </form>
   </div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+  {{#if dashboards.length}}
+  <div class="col-md-6 dashboard-list">
+    <h3>Current Dashboards:</h3>
 
-    {{#each projects as |project|}}
+    {{#each dashboards as |dashboard|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+        <h4><a href="/dashboard/{{dashboard.id}}">{{dashboardt.name}}</a></h4>
+        <button class="btn btn-sm btn-danger" data-id="{{dashboard.id}}">DELETE</button>
       </div>
       <div class="col-md-4">
         

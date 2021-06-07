@@ -1,12 +1,12 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
+<!-- Loop over each object in the dashboards array -->
+{{#each dashboards as |dashboard| }}
 <div class="container">
 <div class="row p-1 mb-2 bg-dark text-white">
-  <div class="col-md-9"><h2><a href="/project/{{project.id}}">{{project.name}}</a></h2></div> 
-  <div class="col-md-3">Posted by {{project.user.name}} {{format_date project.date_created}} </div> 
+  <div class="col-md-9"><h3><a href="/dashboard/{{dashboard.id}}">{{dashboard.name}}</a></h3></div> 
+  <div class="col-md-3">Posted by {{dashboard.user.name}} {{format_date dashboard.date_created}} </div> 
   
 
-    <div class="col-xs-9 p-2 mb-10 bg-light text-dark">{{project.description}}</div>
+    <div class="col-xs-9 p-2 mb-10 bg-light text-dark">{{dashboard.description}}</div>
   </div>
 </div>
 </div>
