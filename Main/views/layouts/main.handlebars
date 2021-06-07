@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="flex-column row">
+    <nav class="p-5 mb-5 bg-dark text-white col-md-12">
+        {{!-- <span role="img" aria-label="money"></span>
+        <a href="/">Stick It To Em</a> --}}
+        <a class="text-white col-md-3" href="/">Home</a>
+      
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a class="text-white col-md-3"  href="/profile">Dashboard</a> 
+        <a class="text-white col-md-3"  href="/" id="logout">Log Out</a>
+          {{else}}
+        {{!-- <a href="/login">login</a> --}}
+         <a class="text-white col-md-3" href="/login">Log In</a>
+         <a class="text-white col-md-3" href="/signup">Sign Up</a>
+        {{/if}}
+      </nav>
+      </div>
+   
+   
+    
+      <main> 
+
+      <!-- Render the sub layout -->
+      {{{ body }}}
+
+       </main>
+      
+
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
+
