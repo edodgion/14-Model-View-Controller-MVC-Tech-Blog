@@ -5,6 +5,7 @@ const newFormHandler = async (event) => {
   const description = document.querySelector('#dashboard-desc').value.trim();
 
   if (name && description) {
+    console.log("inside jsfrontend dashboard route")
     const response = await fetch(`/api/dashboards`, {
       method: 'POST',
       body: JSON.stringify({ name, description }),
@@ -30,7 +31,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete dashboard');
     }

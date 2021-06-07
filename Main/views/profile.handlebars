@@ -30,7 +30,7 @@
     {{#each dashboards as |dashboard|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/dashboard/{{dashboard.id}}">{{dashboardt.name}}</a></h4>
+        <h4><a href="/dashboard/{{dashboard.id}}">{{dashboard.name}}</a></h4>
         <button class="btn btn-sm btn-danger" data-id="{{dashboard.id}}">DELETE</button>
       </div>
       <div class="col-md-4">
@@ -42,5 +42,5 @@
   {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="./js/dashboard.js"></script>
 <link rel="stylesheet" href="/css/style.css">
