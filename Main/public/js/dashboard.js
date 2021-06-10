@@ -6,7 +6,7 @@ const newFormHandler = async (event) => {
 
   if (name && description) {
     console.log("inside jsfrontend dashboard route")
-    const response = await fetch(`/api/dashboards`, {
+    const response = await fetch(`/api/posts`, {
       method: 'POST',
       body: JSON.stringify({ name, description }),
       headers: {
@@ -15,9 +15,9 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
-      alert('Failed to create dashboard');
+      alert('Failed to create blgo post');
     }
   }
 };
@@ -26,22 +26,44 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/dashboards/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete dashboard');
+      alert('Failed to delete blog post');
     }
   }
 };
 
+// const updateButtonHandler = async (event) => {
+//   if (event.target.hasAttribute('data-id')) {
+//     const id = event.target.getAttribute('data-id');
+
+//     const response = await fetch(`/api/dashboards/${id}`, {
+//       method: 'UPDATE',
+//     });
+
+//     if (response.ok) {
+//       document.location.replace('/dashboard');
+//     } else {
+//       alert('Failed to Update dashboard');
+//     }
+//   }
+// };
+
+
+
 document
-  .querySelector('.new-dashboard-form')
+  .querySelector('.new-post-form')
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.dashboard-list')
+  .querySelector('.post-list')
   .addEventListener('click', delButtonHandler);
+
+  // document
+  // .querySelector('.post-list')
+  // .addEventListener('click', updateButtonHandler);

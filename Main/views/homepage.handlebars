@@ -1,12 +1,12 @@
-<!-- Loop over each object in the dashboards array -->
-{{#each dashboards as |dashboard| }}
+<!-- Loop over each object in the posts array -->
+{{#each posts as |post| }}
 <div class="container">
 <div class="row p-1 mb-2 bg-dark text-white">
-  <div class="col-md-9"><h3><a href="/dashboard/{{dashboard.id}}">{{dashboard.name}}</a></h3></div> 
-  <div class="col-md-3">Posted by {{dashboard.user.name}} on {{format_date dashboard.date_created}} </div> 
+  <div class="col-md-9"><h3><a href="/post/{{post.id}}">{{post.name}}</a></h3></div> 
+  <div class="col-md-3">Posted by {{post.user.name}} on {{format_date post.date_created}} </div> 
   
 
-    <div class="col-xs-9 p-2 mb-10 bg-light text-dark">{{dashboard.description}}</div>
+    <div class="col-xs-9 p-2 mb-10 bg-light text-dark">{{post.description}}</div>
   </div>
 </div>
 </div>

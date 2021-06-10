@@ -6,7 +6,7 @@
 	const comment_content = document.querySelector('#comment-desc').value.trim();
 
 	if (comment_content) {
-		await fetch('/api/dashboards', {
+		await fetch('/api/comments', {
 			method: 'POST',
 			body: JSON.stringify({ comment_id, comment_content }),
 			headers: {
@@ -16,7 +16,7 @@
 		document.location.reload();
 
 if (response.ok) {
-	document.location.replace('/dashboards');
+	document.location.replace('/posts');
   } else {
 	alert('Failed to post comment');
   }
