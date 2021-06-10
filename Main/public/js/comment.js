@@ -1,23 +1,26 @@
   const commentFormHandler = async function (event) {
 	event.preventDefault();
 
-	const blog_id = document.querySelector('.new-comment-form').dataset.blogid;
+	const comment_id = document.querySelector('.new-comment-form').dataset.comment_id;
 
-	const comment_description = document.querySelector('#dashboard-desc').value.trim();
+	const comment_content = document.querySelector('#comment-desc').value.trim();
 
-	if (comment_description) {
-		await fetch('/api/dashboard', {
+	if (comment_content) {
+		await fetch('/api/dashboards', {
 			method: 'POST',
-			body: JSON.stringify({
-				blog_id,
-				comment_description,
-			}),
+			body: JSON.stringify({ comment_id, comment_content }),
 			headers: {
 				'Content-Type': 'application/json'
 			}
 		});
 		document.location.reload();
-	}
+
+if (response.ok) {
+	document.location.replace('/dashboards');
+  } else {
+	alert('Failed to post comment');
+  }
+ }
 };
 
 document

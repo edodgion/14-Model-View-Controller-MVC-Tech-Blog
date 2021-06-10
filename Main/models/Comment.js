@@ -10,7 +10,7 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    comment_description: {
+    comment_content: {
       type: DataTypes.STRING,
     },
     date_created: {
@@ -18,7 +18,7 @@ Comment.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    blog_id: {
+    comment_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'dashboard',

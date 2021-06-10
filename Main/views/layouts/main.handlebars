@@ -11,24 +11,27 @@
 
 <body>
   <div class="flex-column row">
-    <nav class="p-5 mb-5 bg-dark text-white col-md-12">
+    <nav class="p-4 mb-5 bg-dark text-white col-md-12">
         {{!-- <span role="img" aria-label="money"></span>
         <a href="/">Stick It To Em</a> --}}
-        <a class="text-white col-md-3" href="/">Home</a>
+        <a class="custom-font m-5 col-md-3" href="/">Home</a>
       
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a class="text-white col-md-3"  href="/profile">Dashboard</a> 
-        <a class="text-white col-md-3"  href="/" id="logout">Log Out</a>
+        <a class="custom-font m-5 col-md-3"  href="/profile">Dashboard</a> 
+        <a class="custom-font m-5 col-md-3"  href="/" id="logout">Log Out</a>
           {{else}}
         {{!-- <a href="/login">login</a> --}}
-         <a class="text-white col-md-3" href="/login">Log In</a>
-         <a class="text-white col-md-3" href="/signup">Sign Up</a>
+         <a class="custom-font m-5 col-md-3" href="/login">Log In</a>
+         <a class="custom-font m-5 col-md-3" href="/signup">Sign Up</a>
         {{/if}}
+      <div class="hero">
+      <div class="title">
+        <h2>The Tech Blog</h2>
+      </div>
+      </div>
       </nav>
       </div>
-   
-   
     
       <main> 
 

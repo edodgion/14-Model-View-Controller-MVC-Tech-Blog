@@ -1,7 +1,13 @@
 [
 	{
-		"blog_id": 1,
-		"comment_description": "Test comment",
-		"user_id": 1
+		"comment_id": 1,
+		"comment_content": "I just learned about this in Class!",
+		"user_id": 2
+	},
+
+	{
+		"comment_id": 2,
+		"comment_content": "Wow I never knew how important MVC was!",
+		"user_id": 2
 	}
 ]

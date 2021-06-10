@@ -5,12 +5,12 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
   console.log("inside post dashboard")
   try {
-    const newBlog = await Dashboard.create({
+    const newPost = await Dashboard.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newBlog);
+    res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err);
   }

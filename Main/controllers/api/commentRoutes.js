@@ -1,29 +1,45 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', (req,res) => {
+
+router.get('/', async (req, res) => {
   try {
-    const commentData = await Comment.findByPk(req.params.id, {
+    // Get all comments and JOIN with user data
+    const commentData = await Comment.findAll({
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Comment,
+          attributes: ['comment_content'],
         },
       ],
     });
 
-    const comment = commentData.get({ plain: true });
+    // Serialize data so the template can read it
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
 
-    res.render('comment', {
-      ...comment,
-      logged_in: req.session.logged_in
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      comments, 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+router.get('/:id', (req, res) => {
+  Comment.findAll({
+          where: {
+              id: req.params.id
+          }
+      })
+      .then(commentData => res.json(commentData))
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      })
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {
