@@ -17,7 +17,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to create blgo post');
+      alert('Failed to create blog post');
     }
   }
 };
@@ -38,23 +38,6 @@ const delButtonHandler = async (event) => {
   }
 };
 
-// const updateButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
-
-//     const response = await fetch(`/api/dashboards/${id}`, {
-//       method: 'UPDATE',
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/dashboard');
-//     } else {
-//       alert('Failed to Update dashboard');
-//     }
-//   }
-// };
-
-
 
 document
   .querySelector('.new-post-form')
@@ -64,6 +47,3 @@ document
   .querySelector('.post-list')
   .addEventListener('click', delButtonHandler);
 
-  // document
-  // .querySelector('.post-list')
-  // .addEventListener('click', updateButtonHandler);
