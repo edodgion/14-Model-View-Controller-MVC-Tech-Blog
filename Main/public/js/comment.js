@@ -1,27 +1,26 @@
-  const commentFormHandler = async function (event) {
+  const commentFormHandler = async (event) => {
 	event.preventDefault();
 
-	const comment_id = document.querySelector('.new-comment-form').dataset.comment_id;
-
 	const comment_content = document.querySelector('#comment-desc').value.trim();
+	const comment_id = document.querySelector('#new-comment').value;
 
-	if (comment_content) {
-		await fetch('/api/comments', {
+	if (comment_content && comment_id ) {
+	
+		const response = await fetch('/api/comments', {
 			method: 'POST',
-			body: JSON.stringify({ comment_id, comment_content }),
+			body: JSON.stringify({ comment_content, comment_id }),
 			headers: {
 				'Content-Type': 'application/json'
 			}
 		});
-		document.location.reload();
 
-if (response.ok) {
-	document.location.replace('/posts');
-  } else {
-	alert('Failed to post comment');
-  }
- }
-};
+		if (response.ok) {
+			document.location.reload();
+		  } else {
+			alert('Failed to create post');
+		  }
+		}
+	  };
 
 document
 	.querySelector('.new-comment-form')
