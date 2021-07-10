@@ -25,11 +25,11 @@
       <div class="col-md-3">Comment from {{user.name}} on {{format_date date_created}}</div>
 			<div class="col-xs-9 p-2 mb-10 bg-light text-dark">{{comment_content}}</div>
 		</div>
-{{#if logged_in}}
-    <button type="submit" class="delete-comment-form btn btn-primary  id="delete-comment">Delete</button>
+
+    <button type="submit" class="delete-comment-form btn btn-primary" data-commentid={{comment_id}} id="delete-comment">Delete</button>
     {{!-- <button type="submit" class="update-comment-form btn btn-primary" id="update-comment">Update</button> --}} 
     </div>
-{{/if}}    
+  
     </div> 
 {{/each}}
 </div>
