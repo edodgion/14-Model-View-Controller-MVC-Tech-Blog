@@ -9,10 +9,10 @@
 
 
 {{#if logged_in}}
-<form class="new-comment-form" id="new-comment" >
+<form class="new-comment-form" id="new-comment" data-commentid={{id}}>
   <div class="col-md-6 mb-3 d-flex align-items-center p-2 mb-10 bg-light text-dark">
         <textarea class="form-input" id="comment-desc" placeholder="Please leave a comment..." name="post-desc"></textarea>
-        <button type="submit" class="new-comment-form btn btn-primary">Comment</button>
+        <button type="submit" class="new-comment-form btn btn-primary" id="new-comment">Comment</button>
   </div>
   </form>
   
@@ -25,10 +25,15 @@
       <div class="col-md-3">Comment from {{user.name}} on {{format_date date_created}}</div>
 			<div class="col-xs-9 p-2 mb-10 bg-light text-dark">{{comment_content}}</div>
 		</div>
+{{#if logged_in}}
+    <button type="submit" class="delete-comment-form btn btn-primary  id="delete-comment">Delete</button>
+    {{!-- <button type="submit" class="update-comment-form btn btn-primary" id="update-comment">Update</button> --}} 
     </div>
-    </div>
+{{/if}}    
+    </div> 
 {{/each}}
 </div>
+
  
 
 <script src="../js/comment.js"></script>
